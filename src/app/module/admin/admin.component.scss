@@ -5,7 +5,7 @@
   width: 65px;
 }
 #menu-toggle:checked ~ .main-content header {
-  left: calc(65px + 1rem);
+  left: calc(65px);
 }
 #menu-toggle:checked ~ .main-content {
   margin-left: 65px;
@@ -125,10 +125,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg);
+  background: var(--bg-header);
   padding: 0 1rem;
   position: fixed;
-  left: calc(280px + .5rem);
+  left: calc(280px);
   right: .5rem;
   top: .2rem;
   border-radius: 3px;
@@ -173,7 +173,7 @@ input, button {
   padding-left: 1rem;
 }
 .main-content main {
-  background: var(--bg);
+  background: var(--bg-body);
   margin-top: calc(75px + 5px);
   color: var(--main-text);
 }
@@ -193,7 +193,7 @@ input, button {
     width: 65px;
   }
   #menu-toggle ~ .main-content header {
-    left: calc(65px + 1rem);
+    left: calc(65px);
   }
   #menu-toggle ~ .main-content {
     margin-left: 65px;
@@ -217,7 +217,7 @@ input, button {
     z-index: 100;
   }
   #menu-toggle:checked ~ .main-content header {
-    left: calc(280px + 1rem);
+    left: calc(280px);
   }
   #menu-toggle:checked ~ .main-content {
     margin-left: 65px;

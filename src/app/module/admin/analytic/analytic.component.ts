@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Chart} from "chart.js";
+import {Chart,registerables} from "chart.js";
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-analytic',
