@@ -97,3 +97,39 @@ a:hover {
   color: var(--main)
 }
 
+.container{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.wrap{
+  position: relative;
+  display: flex;
+}
+.wrap span{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #4fc3dc;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc33,
+  0 0 50px #4fc3dc,
+  0 0 100px #4fc3dc;
+  animation: animated 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+@keyframes animated {
+  0%{
+    transform: translateY(100vh) scale(0);
+  }
+  100%{
+    transform: translateY(-10vh) scale(1);
+  }
+}
+.wrap span:nth-child(even){
+  background: var(--main);
+  box-shadow: 0 0 0 10px var(--main),
+  0 0 50px var(--main),
+  0 0 100px var(--main);
+}
