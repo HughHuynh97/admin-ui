@@ -1,0 +1,242 @@
+#menu-toggle {
+  display: none;
+}
+#menu-toggle:checked ~ .sidebar {
+  width: 65px;
+}
+#menu-toggle:checked ~ .main-content header {
+  left: calc(65px + 1rem);
+}
+#menu-toggle:checked ~ .main-content {
+  margin-left: 65px;
+}
+#menu-toggle:checked ~ .sidebar .brand h2 {
+  display: none;
+}
+#menu-toggle:checked ~ .sidebar .side-image {
+  height: 50px;
+  width: 50px;
+}
+#menu-toggle:checked ~ .sidebar .user {
+  display: none;
+}
+
+#menu-toggle:checked ~ .sidebar li a span:last-child {
+  display: none;
+}
+#menu-toggle:checked ~ .main-content .menu-toggle-lbl .icon-menu-toggle:before {
+  content:"\f00d";
+  font-size: 20px;
+}
+#menu-toggle:checked ~.main-content .menu-toggle-lbl {
+  animation: tilt-shaking 3s linear 100ms;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  12% { transform: rotate(2deg); }
+  25% { transform: rotate(5deg); }
+  37% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  62% { transform: rotate(-2deg); }
+  75% { transform: rotate(-5deg); }
+  87% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+.sidebar {
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background: var(--bg);
+  width: 280px;
+  overflow-y: auto;
+  transition: width 300ms;
+}
+.brand {
+  padding: .5rem 1rem;
+  display: flex;
+  color: var(--main);
+  align-items: center;
+  height: 70px;
+}
+.brand span {
+  font-size: 1.8rem;
+  margin-right: .5rem;
+}
+.side-user {
+  margin: 1.8rem 0;
+}
+.side-image {
+  height: 120px;
+  width: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  border: 4px solid #3e454d;
+  border-radius: 50%;
+}
+.user {
+  text-align: center;
+  color: var(--main-text);
+  margin-top: .5rem;
+}
+.user small {
+  display: inline-block;
+  color: var(--main);
+}
+.sidemenu {
+  padding: .5rem;
+}
+
+.sidemenu a {
+  color: var(--main-text);
+  font-size: .85rem;
+  display: flex;
+  align-items: center;
+  height: 45px;
+}
+.sidemenu a span:first-child {
+  font-size: 1.3rem;
+  padding: 0 .6rem;
+}
+.sidemenu a.active {
+  background: var(--main);
+  color: var(--main-text);
+  border-radius: 5px;
+  height: 45px;
+}
+.sidemenu a:hover {
+  background: var(--main);
+  color: var(--main-text);
+  border-radius: 5px;
+  height: 45px;
+}
+
+.main-content {
+  margin-left: 280px;
+  min-height: 100vh;
+  background: var(--bg-body);
+  padding: .5rem;
+  transition: margin-left 300ms;
+}
+header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+  padding: 0 1rem;
+  position: fixed;
+  left: calc(280px + .5rem);
+  right: .5rem;
+  top: .2rem;
+  border-radius: 3px;
+  transition: left 300ms;
+}
+input, button {
+  outline:  none;
+}
+.menu-toggle-lbl {
+  height: 50px;
+  width: 50px;
+  background: var(--main);
+  color: var(--main-text);
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+}
+.menu-toggle-lbl .icon-menu-toggle:before {
+  content:"\f0c9";
+  font-size: 25px;
+  transition: content 300ms;
+}
+.search {
+  display: flex;
+  width: 300px;
+  border-radius: 30px;
+  overflow-x: hidden;
+  border: 3px solid #3e454d;
+  align-items: center;
+}
+.search input {
+  flex: 1;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 1rem;
+  color: var(--main-text);
+}
+.search span {
+  font-size: 1.3rem;
+  color: var(--main-text);
+  padding-left: 1rem;
+}
+.main-content main {
+  background: var(--bg);
+  margin-top: calc(75px + 5px);
+  color: var(--main-text);
+}
+.main-content .btn-logout {
+  background: var(--main);
+  color: var(--main-text);
+
+}
+.main-content .btn-logout span:first-child {
+  font-size: 20px;
+}
+.main-content .btn-logout span:last-child {
+  font-size: 20px;
+}
+@media only screen and (max-width: 1124px) {
+  #menu-toggle ~ .sidebar {
+    width: 65px;
+  }
+  #menu-toggle ~ .main-content header {
+    left: calc(65px + 1rem);
+  }
+  #menu-toggle ~ .main-content {
+    margin-left: 65px;
+  }
+  #menu-toggle ~ .sidebar .brand h2 {
+    display: none;
+  }
+  #menu-toggle ~ .sidebar .side-image {
+    height: 50px;
+    width: 50px;
+  }
+  #menu-toggle ~ .sidebar .user {
+    display: none;
+  }
+  #menu-toggle ~ .sidebar li a span:last-child {
+    display: none;
+  }
+
+  #menu-toggle:checked ~ .sidebar {
+    width: 280px;
+    z-index: 100;
+  }
+  #menu-toggle:checked ~ .main-content header {
+    left: calc(280px + 1rem);
+  }
+  #menu-toggle:checked ~ .main-content {
+    margin-left: 65px;
+  }
+  #menu-toggle:checked ~ .sidebar .brand h2 {
+    display: block;
+  }
+  #menu-toggle:checked ~ .sidebar .side-image {
+    height: 120px;
+    width: 120px;
+  }
+  #menu-toggle:checked ~ .sidebar .user {
+    display: block;
+  }
+  #menu-toggle:checked ~ .sidebar li a span:last-child {
+    display: inline-block;
+  }
+  #menu-toggle:checked ~ .main-content .menu-toggle-lbl .icon-menu-toggle:before {
+    content:"\f00d";
+    font-size: 25px;
+  }
+}
