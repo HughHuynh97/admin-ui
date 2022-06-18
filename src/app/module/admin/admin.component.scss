@@ -1,19 +1,27 @@
 .main-content.toggle {
   margin-left: 65px;
+
   header {
     left: calc(65px);
   }
-  .menu-toggle-lbl{
+
+  .menu-toggle-lbl {
     animation: tilt-shaking 3s linear 100ms;
+
     .icon-menu-toggle:before {
-      content:"\f00d";
+      content: "\f00d";
       font-size: 20px;
     }
   }
 }
+
 .dropdown-toggle::after {
   display: none !important;
 }
+.dropdown-item:focus, .dropdown-item:active, .dropdown-item:hover {
+  background: var(--main);
+}
+
 .main-content {
   margin-left: 280px;
   min-height: 100vh;
@@ -21,6 +29,7 @@
   padding: .1rem;
   transition: margin-left 300ms;
 }
+
 header {
   height: 70px;
   display: flex;
@@ -33,15 +42,19 @@ header {
   border-radius: 3px;
   transition: left 300ms;
 }
+
 .light-theme .header {
   box-shadow: 3px 0 10px 0 #03060b;
 }
+
 .dark-theme .header {
   box-shadow: 0 16px 24px rgb(0 0 0 / 10%);
 }
+
 input, button {
-  outline:  none;
+  outline: none;
 }
+
 .menu-toggle-lbl {
   height: 50px;
   width: 50px;
@@ -50,12 +63,14 @@ input, button {
   display: grid;
   place-items: center;
   border-radius: 5px;
+
   .icon-menu-toggle:before {
-    content:"\f0c9";
+    content: "\f0c9";
     font-size: 25px;
     transition: content 300ms;
   }
 }
+
 .search {
   display: flex;
   width: 300px;
@@ -64,6 +79,7 @@ input, button {
   border: 3px solid #3e454d;
   align-items: center;
 }
+
 .search input {
   flex: 1;
   height: 45px;
@@ -72,37 +88,45 @@ input, button {
   padding: 1rem;
   color: var(--main-text);
 }
+
 .search span {
   font-size: 1.3rem;
   color: var(--main-text);
   padding-left: 1rem;
 }
+
 .main-content main {
   background: var(--bg-body);
   margin-top: calc(75px + 5px);
   color: var(--main-text);
 }
+
 .main-content .btn-logout {
   background: var(--main);
   color: var(--main-text);
 
 }
+
 .main-content .btn-logout span:first-child {
   font-size: 20px;
 }
+
 .main-content .btn-logout span:last-child {
   font-size: 20px;
 }
+
 .indicator {
   position: absolute;
   top: 8px;
   right: 12px;
+
   .circle {
     background: var(--main);
     width: 7px;
     height: 7px;
     border-radius: 50%;
   }
+
   .circle::before {
     background-color: var(--main);
     content: "";
@@ -121,7 +145,7 @@ input, button {
   .main-content:before {
     content: "";
     width: 100vw;
-    background: rgba(0,0,0,.3);
+    background: rgba(0, 0, 0, .3);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -134,12 +158,14 @@ input, button {
 
   .main-content, .main-content.toggle {
     margin-left: 65px;
+
     header {
       left: 65px;
     }
+
     .menu-toggle-lbl {
       .icon-menu-toggle:before {
-        content:"\f0c9";
+        content: "\f0c9";
         font-size: 25px;
       }
     }
