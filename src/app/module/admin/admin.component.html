@@ -1,43 +1,44 @@
-<input type="checkbox" id="menu-toggle">
-<div class="sidebar">
-  <div class="brand">
-    <span class="las la-feather-alt"></span>
-    <h2>Admin Tool</h2>
-  </div>
-  <div class="sidemenu">
-    <div class="side-user">
-      <div class="side-image" style="background-image: url('./assets/image/avatar.jpeg')" ></div>
-      <div class="user">
-        <small>Hugh Huynh</small>
-        <p>Solfware Developer</p>
+<div class="{{darkTheme? 'dark-theme':'light-theme'}}">
+  <app-siderbar [toggle]="toggle" (onChangeToggle)="changeToggle($event)" (onChangeTheme)="changeTheme($event)"></app-siderbar>
+  <div class="main-content" [ngClass]="{'toggle': toggle}">
+    <header>
+      <label class="menu-toggle-lbl ms-3" (click)="toggle=!toggle">
+        <span class="las icon-menu-toggle"></span>
+      </label>
+      <div class="search">
+        <span class="las la-search"></span>
+        <input type="search" placeholder="Enter Keyword">
       </div>
-    </div>
-    <ul class="p-0">
-      <ng-container *ngFor="let item of menus">
-        <li >
-          <a [routerLink]="item.link" [routerLinkActive]="'active'" class="text-decoration-none" href="#">
-            <span class="{{item.icon}}"></span>
-            <span>{{item.title}}</span>
+      <ul class="navbar-nav flex-row me-3">
+        <li class="nav-item dropdown">
+          <a style="margin-top: 3px; color: var(--main-text)" class="nav-link dropdown-toggle me-3" href="#" role="button" id="messageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </a>
         </li>
-      </ng-container>
-
-    </ul>
-
+        <li class="nav-item dropdown">
+          <a style="margin-top: 3px;color: var(--main-text)" class="nav-link dropdown-toggle me-3" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <div class="indicator">
+              <div class="circle"></div>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a style="color: var(--main-text)" class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <img width="30" height="30" class="rounded-circle" src="./assets/image/avatar.jpeg" alt="profile">
+          </a>
+          <ul style="background: var(--bg-header)" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a style="color: var(--main-text)" class="dropdown-item" href="#"><em class="las la-user"></em><span class="ms-3">Profile</span></a></li>
+            <li><a style="color: var(--main-text)" class="dropdown-item" href="#"><em class="las la-edit"></em><span class="ms-3">Edit Profile</span></a></li>
+            <li><a style="color: var(--main-text)" class="dropdown-item" href="/login"><em class="las la-sign-out-alt"></em><span class="ms-3">Logout</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   </div>
 </div>
-<div class="main-content">
-  <header>
-    <label class="menu-toggle-lbl" for="menu-toggle">
-      <span class="las icon-menu-toggle"></span>
-    </label>
-    <div class="search">
-      <span class="las la-search"></span>
-      <input type="search" placeholder="Enter Keyword">
-    </div>
-    <div></div>
-  </header>
-  <main>
-    <router-outlet></router-outlet>
-  </main>
-</div>
+
+

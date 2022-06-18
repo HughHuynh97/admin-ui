@@ -4,10 +4,10 @@ Chart.register(...registerables);
 
 @Component({
   selector: 'app-analytic',
-  templateUrl: './analytic.component.html',
-  styleUrls: ['./analytic.component.scss']
+  templateUrl: './system-monitoring.component.html',
+  styleUrls: ['./system-monitoring.component.scss']
 })
-export class AnalyticComponent implements OnInit, AfterViewInit {
+export class SystemMonitoringComponent implements OnInit, AfterViewInit {
 
   canvas: any;
   ctx: any;

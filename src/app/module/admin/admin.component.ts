@@ -6,13 +6,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  menus: any[] = [
-    {title: 'Analytic', icon: 'las la-chart-pie', link: '/analytic'},
-    {title: 'Ecommerce', icon: 'las la-shopping-cart', link: '/ecommerce'},
-    {title: 'Tasks', icon: 'las la-tasks', link: '/tasks'},
-    {title: 'Authentication', icon: 'las la-lock', link: '/authentication'},
-    {title: 'Tools', icon: 'las la-tools', link: '/tools'}
-  ];
+
+  toggle: boolean = false;
+  darkTheme:boolean = true;
+
+  changeToggle(value: boolean): void {
+    this.toggle = value;
+  }
+  changeTheme(value: boolean): void {
+    this.darkTheme = value;
+  }
 
   constructor() {
   }

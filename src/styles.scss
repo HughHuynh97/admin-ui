@@ -1,11 +1,18 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-:root {
+.dark-theme {
   --main: #63b174;
   --bg: #14222b;
   --bg-body: #1f2c33;
   --bg-header: #1d262a;
   --main-text: #fff
+}
+.light-theme {
+  --main: #63b174;
+  --bg: #ffff;
+  --bg-body: #eff8fe;
+  --bg-header: #fff;
+  --main-text: #222
 }
 body {
   background: var(--bg-body);
@@ -17,4 +24,41 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  12% { transform: rotate(2deg); }
+  25% { transform: rotate(5deg); }
+  37% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  62% { transform: rotate(-2deg); }
+  75% { transform: rotate(-5deg); }
+  87% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    width: 7px;
+    height: 7px;
+    left: 0;
+    top: 0
+  }
+
+  95% {
+    opacity: .1;
+    left: -10.5px;
+    top: -10.5px;
+    width: 28px;
+    height: 28px
+  }
+
+  100% {
+    opacity: 0;
+    width: 7px;
+    height: 7px;
+    left: 0;
+    top: 0
+  }
 }
