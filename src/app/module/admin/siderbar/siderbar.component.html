@@ -1,27 +1,51 @@
 <div class="sidebar" [ngClass]="{'toggle': toggle}">
   <div class="brand">
-    <img class="mb-2" alt="" src="https://webinf.fr/assets/images/spring-boot.svg" width="30px">
-    <h2>Admin Tool</h2>
+    <h2><span style="color: var(--main-text); font-weight: 100; margin: 0">Admin</span><span
+      class="font-weight-bold">UI</span></h2>
     <label class="menu-toggle-lbl mb-2 ms-auto" (click)="onChangeToggle.emit(!toggle)">
       <span class="las icon-menu-toggle"></span>
     </label>
   </div>
   <div class="sidemenu">
     <div class="side-user">
-      <div class="side-image" style="background-image: url('./assets/image/avatar.jpeg')" ></div>
+      <div class="side-image" style="background-image: url('./assets/image/avatar.jpeg')"></div>
       <div class="user">
         <small>Hugh Huynh</small>
         <p>Solfware Developer</p>
       </div>
     </div>
-    <ul class="p-0">
+    <ul class="navbar-nav p-0">
       <ng-container *ngFor="let item of menus">
-        <li >
-          <a [routerLink]="item.link" [routerLinkActive]="'active'" class="text-decoration-none" href="#">
-            <span class="{{item.icon}}"></span>
-            <span>{{item.title}}</span>
-          </a>
-        </li>
+        <ng-container *ngIf="item.children.length === 0">
+          <li class="nav-item dropdown">
+            <a [routerLink]="item.link" [routerLinkActive]="'active'" class="text-decoration-none"
+               href="javascript:void(0)">
+              <span class="{{item.icon}}"></span>
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="item.children.length !== 0">
+          <li class="nav-item root-nav-link">
+            <a class="me-3 text-decoration-none {{!item.collapse?'':'active'}}" (click)="item.collapse=!item.collapse"
+               data-bs-toggle="collapse" href="#{{'nav-i'+item.id}}" role="button" aria-expanded="false" >
+              <span class="{{item.icon}}"></span>
+              <span>{{item.title}}</span>
+              <span class="ms-auto"><em class="las {{!item.collapse? 'la-angle-down': 'la-angle-up'}}"></em></span>
+            </a>
+          </li>
+          <li class="nav-item child-link">
+            <div class="collapse multi-collapse" id="{{'nav-i'+item.id}}">
+              <ng-container *ngFor="let i of item.children">
+                <a [routerLink]="i.link" [routerLinkActive]="'active'" class="text-decoration-none"
+                   href="javascript:void(0)">
+                  <span class="{{i.icon}}"></span>
+                  <span>{{i.title}}</span>
+                </a>
+              </ng-container>
+            </div>
+          </li>
+        </ng-container>
       </ng-container>
 
     </ul>
@@ -30,17 +54,25 @@
 <nav class="settings-sidebar" [ngClass]="{'open': settingOpen}">
   <div class="sidebar-body">
     <a (click)="settingOpen=!settingOpen" href="javascript:void(0)" class="settings-sidebar-toggler">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           class="feather feather-settings">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path
+          d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
     </a>
     <div class="setting-body mb-3 pb-3 ms-5">
-      <div class="form-check form-check-inline" >
-        <input type="radio" class="form-check-input" name="sidebarThemeSettings" (click)="onChangeTheme.emit(false)" id="sidebarLight" value="sidebar-light" >
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="sidebarThemeSettings" (click)="onChangeTheme.emit(false)"
+               id="sidebarLight" value="sidebar-light">
         <label class="form-check-label" for="sidebarLight">
           <span>Light</span>
         </label>
       </div>
       <div class="form-check form-check-inline">
-        <input type="radio" class="form-check-input" (click)="onChangeTheme.emit(true)" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark" checked="">
+        <input type="radio" class="form-check-input" (click)="onChangeTheme.emit(true)" name="sidebarThemeSettings"
+               id="sidebarDark" value="sidebar-dark" checked="">
         <label class="form-check-label" for="sidebarDark">
           <span>Dark</span>
         </label>

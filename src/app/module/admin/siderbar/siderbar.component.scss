@@ -1,10 +1,8 @@
 .sidebar.toggle {
   width: 65px;
-
   .brand h2 {
     display: none;
   }
-
   .user {
     display: none;
   }
@@ -16,6 +14,15 @@
 
   li a span:last-child {
     display: none;
+  }
+  .root-nav-link {
+    display: none;
+  }
+  .child-link {
+    margin-left: 0!important;
+    div {
+      display: block !important;
+    }
   }
 }
 
@@ -98,8 +105,7 @@
 }
 
 .sidemenu a.active {
-  background: var(--main);
-  color: var(--main-text);
+  color: var(--main);
   border-radius: 5px;
   height: 45px;
 }
@@ -229,6 +235,15 @@
     .menu-toggle-lbl .icon-menu-toggle:before {
       content: "\f00d";
       font-size: 25px;
+    }
+    .root-nav-link {
+      display: none;
+    }
+    .child-link {
+      margin-left: 0!important;
+      div {
+        display: block !important;
+      }
     }
   }
 }

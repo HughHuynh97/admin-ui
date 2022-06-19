@@ -29,7 +29,9 @@
   padding: .1rem;
   transition: margin-left 300ms;
 }
-
+.page-content {
+  min-height: 100vh;
+}
 header {
   height: 70px;
   display: flex;
@@ -39,7 +41,6 @@ header {
   position: fixed;
   left: calc(280px);
   right: .1rem;
-  border-radius: 3px;
   transition: left 300ms;
 }
 

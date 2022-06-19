@@ -26,6 +26,36 @@ body {
   padding: 0;
 }
 
+.custom-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  thead {
+    tr {
+      background-color: var(--main);
+      color: var(--main-text);
+      text-align: left;
+    }
+    tr.active-row {
+      font-weight: bold;
+      color: var(--main);
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 1px solid var(--bg-body);
+      background-color: var(--bg-body);
+    }
+  }
+  th,td {
+    padding: 12px 15px;
+  }
+}
+
 @keyframes tilt-shaking {
   0% { transform: rotate(0deg); }
   12% { transform: rotate(2deg); }
@@ -62,3 +92,4 @@ body {
     top: 0
   }
 }
+

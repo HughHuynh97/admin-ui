@@ -5,9 +5,10 @@ import {AdminRoutingModule} from "./admin-routing.module";
 import { SystemMonitoringComponent } from './analytic/system-monitoring.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { TaskComponent } from './task/task.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
 import { ToolsComponent } from './tools/tools.component';
 import { SiderbarComponent } from './siderbar/siderbar.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
 
 @NgModule({
     declarations: [
@@ -15,9 +16,10 @@ import { SiderbarComponent } from './siderbar/siderbar.component';
       SystemMonitoringComponent,
       EcommerceComponent,
       TaskComponent,
-      AuthenticationComponent,
       ToolsComponent,
-      SiderbarComponent
+      SiderbarComponent,
+      UserManagementComponent,
+      RoleManagementComponent
     ],
     imports: [
       ShareModule,
